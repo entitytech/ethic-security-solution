@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 import logo from '../images/LOGO-W.png';
 
@@ -10,7 +11,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-             <img src={logo} alt="Logo" className="h-20 w-24" />
+              <Link to="/" className="hover:opacity-80 transition-opacity">
+                <img src={logo} alt="Logo" className="h-20 w-24" />
+              </Link>
             </div>
             <p className="text-gray-300">
               Trusted protection and smart automation solutions for homes & businesses in Kerala.
