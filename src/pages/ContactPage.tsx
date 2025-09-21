@@ -483,7 +483,7 @@ const ContactPage = () => {
         {/* Quick Contact Cards */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-xl text-center transition-colors cursor-pointer"
+            className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handleWhatsAppClick}
           >
             <div className="text-3xl mb-2 flex justify-center"><BsWhatsapp /></div>
@@ -494,7 +494,7 @@ const ContactPage = () => {
           </div>
 
           <div
-            className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-xl text-center transition-colors cursor-pointer"
+            className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handlePhoneClick}
           >
             <div className="text-3xl mb-2 flex justify-center"><IoCallOutline /></div>
@@ -503,7 +503,7 @@ const ContactPage = () => {
           </div>
 
           <div
-            className="bg-purple-500 hover:bg-purple-600 text-white p-6 rounded-xl text-center transition-colors cursor-pointer"
+            className="bg-purple-500 hover:bg-purple-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handleEmailClick}
           >
             <div className="text-3xl mb-2 flex justify-center"><MdOutlineEmail /></div>
