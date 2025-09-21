@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
 import { Shield, Users, Award, Clock } from 'lucide-react';
 
 const HomePage = () => {
+  const location = useLocation();
+
+  // Scroll to top when component mounts or when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   const features = [
     {
       icon: <Shield className="h-12 w-12 text-blue-600" />,

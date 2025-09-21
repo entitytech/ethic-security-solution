@@ -54,11 +54,31 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Solutions</h3>
             <ul className="space-y-2 text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">CCTV Installation</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Home Automations</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Video Door Phones</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Solar Solutions</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Gate Automation</li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors cursor-pointer block">
+                  CCTV Installation
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors cursor-pointer block">
+                  Home Automations
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors cursor-pointer block">
+                  Video Door Phones
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors cursor-pointer block">
+                  Solar Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors cursor-pointer block">
+                  Gate Automation
+                </Link>
+              </li>
             </ul>
           </div>
 

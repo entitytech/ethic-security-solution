@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Search, ChevronDown, ChevronUp, Phone, MessageCircle, Mail, Book } from 'lucide-react';
 
 const HelpCenterPage = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  // Scroll to top when component mounts or when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const faqs = [
     {

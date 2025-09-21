@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MapPin, Phone, Mail, Users, Award, Clock, Shield } from 'lucide-react';
 
 const AboutPage = () => {
+  const location = useLocation();
+
+  // Scroll to top when component mounts or when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // Function to open Google Maps with the location
+  const openGoogleMaps = () => {
+    const address = "8XCR+FRR, Orphanage Rd, Mukkam, Kerala 673602, India";
+    const encodedAddress = encodeURIComponent(address);
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+    window.open(googleMapsUrl, '_blank');
+  };
   const stats = [
     { number: '500+', label: 'Projects Completed' },
     { number: '8+', label: 'Years Experience' },
@@ -132,17 +147,66 @@ const AboutPage = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Our Location
             </h2>
-            <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600">
-                  Interactive Map<br />
-                  8XCR+FRR, Orphanage Rd<br />
-                  Mukkam, Kerala 673602
-                </p>
-                <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Open in Google Maps
-                </button>
+            <div className="relative rounded-2xl h-96 overflow-hidden">
+              {/* Map Background with Location Pin */}
+              <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative">
+                {/* Map Pattern Background */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="w-full h-full" style={{
+                    backgroundImage: `
+                      linear-gradient(90deg, #e5e7eb 1px, transparent 1px),
+                      linear-gradient(180deg, #e5e7eb 1px, transparent 1px)
+                    `,
+                    backgroundSize: '40px 40px'
+                  }}></div>
+                </div>
+                
+                {/* Central Location Marker */}
+                <div className="relative z-10 text-center">
+                  <div className="relative">
+                    {/* Location Pin */}
+                    <div className="bg-red-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse">
+                      <MapPin className="h-8 w-8" />
+                    </div>
+                    {/* Pulse Effect */}
+                    <div className="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Ethic Security Solution</h3>
+                  <p className="text-gray-600 text-sm">
+                    8XCR+FRR, Orphanage Rd<br />
+                    Mukkam, Kerala 673602
+                  </p>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 bg-white/80 rounded-lg px-3 py-1 text-xs text-gray-600">
+                  📍 Location
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white/80 rounded-lg px-3 py-1 text-xs text-gray-600">
+                  🗺️ Kerala, India
+                </div>
+              </div>
+              
+              {/* Overlay with location info and button */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-gray-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <MapPin className="h-5 w-5 text-blue-600" />
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">Get Directions</p>
+                      <p className="text-xs text-gray-600">
+                        Click to open in Google Maps
+                      </p>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={openGoogleMaps}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap shadow-md hover:shadow-lg"
+                  >
+                    Open in Maps
+                  </button>
+                </div>
               </div>
             </div>
           </div>

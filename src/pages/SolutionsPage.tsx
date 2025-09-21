@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import { Camera, Home, Phone, Fingerprint, Volume2, Network, DoorOpen, Cable, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Cctv, Home, Phone, Fingerprint, Volume2, Network, DoorOpen, Cable, Shield } from 'lucide-react';
 
 const SolutionsPage = () => {
   const [selectedSolution, setSelectedSolution] = useState<number | null>(null);
+  const location = useLocation();
+
+  // Scroll to top when component mounts or when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const solutions = [
     {
-      icon: <Camera className="h-12 w-12" />,
+      icon: <Cctv className="h-12 w-12" />,
       title: "CCTV Installation",
       description: "Professional CCTV camera installation with HD quality recording, remote monitoring, and night vision capabilities for complete surveillance.",
       details: "Our CCTV systems include high-definition cameras, digital video recorders, remote access through mobile apps, and professional installation with optimal camera placement for maximum coverage.",
@@ -95,7 +102,7 @@ const SolutionsPage = () => {
               />
               <div className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="text-blue-600">
+                  <div className="text-green-600">
                     {solution.icon}
                   </div>
                   <h3 className="text-xl  font-semibold text-gray-900">
@@ -131,9 +138,14 @@ const SolutionsPage = () => {
           <p className="text-blue-100 text-lg mb-8">
             Get a free consultation and quote for your security needs
           </p>
-          <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300">
+          <a 
+            href="https://wa.me/919207011244?text=Hi! I'm interested in getting a free quote for your security solutions. Please provide me with more information."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
+          >
             Get Free Quote
-          </button>
+          </a>
         </div>
       </div>
     </div>

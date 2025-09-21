@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Filter } from 'lucide-react';
 
 const ProductsPage = () => {
+  const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Scroll to top when component mounts or when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const categories = ['All', 'CCTV', 'Home Automation', 'Networking', 'Video Door Phone', 'Attendance system', 'IP PBX', 'Cables'];
 
@@ -185,9 +192,14 @@ const ProductsPage = () => {
           <p className="text-blue-100 text-lg mb-8">
             Contact us for bulk orders and customized security solutions
           </p>
-          <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300">
+          <a 
+            href="https://wa.me/919207011244?text=Hi! I'm interested in your products and would like to speak with your sales team. Please provide me with more information about your security solutions."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
+          >
             Contact Sales Team
-          </button>
+          </a>
         </div>
       </div>
     </div>
