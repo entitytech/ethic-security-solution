@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Search, ChevronDown, ChevronUp, Phone, MessageCircle, Mail, Book } from 'lucide-react';
+import { useState } from 'react';
+import { Search, ChevronDown, ChevronUp, Phone, Mail,} from 'lucide-react';
+import { IoLogoWhatsapp } from 'react-icons/io5';
+import repairToolImg from '../images/repair-tool.png';
+import productDescriptionImg from '../images/product-description.png';
+import troubleshootingImg from '../images/troubleshooting.png';
+import insuranceImg from '../images/insurance.png';
 
 const HelpCenterPage = () => {
-  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  // Scroll to top when component mounts or when location changes
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
 
   const faqs = [
     {
       question: "What types of CCTV cameras do you install?",
-      answer: "We install various types of CCTV cameras including dome cameras, bullet cameras, PTZ cameras, wireless cameras, and IP cameras. We work with top brands like Hikvision, CP Plus, Dahua, and Uniview to provide high-quality surveillance solutions."
+      answer: "We install various types of CCTV cameras including dome cameras, bullet cameras, PTZ cameras, wireless cameras, and IP cameras. We work with top brands like Hikvision, Imou, Dahua, and Ezviz to provide high-quality surveillance solutions."
     },
     {
       question: "How long does it take to install a home automation system?",
@@ -51,22 +49,22 @@ const HelpCenterPage = () => {
     {
       title: "Installation Services",
       description: "Learn about our professional installation process",
-      icon: "🔧"
+      icon: repairToolImg
     },
     {
       title: "Product Guides",
       description: "Detailed guides for our security products",
-      icon: "📖"
+      icon: productDescriptionImg
     },
     {
       title: "Troubleshooting",
       description: "Common issues and solutions",
-      icon: "🛠️"
+      icon: troubleshootingImg
     },
     {
       title: "Warranty & Support",
       description: "Information about warranties and support options",
-      icon: "🛡️"
+      icon: insuranceImg
     }
   ];
 
@@ -82,13 +80,13 @@ const HelpCenterPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Help Center
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-24">
             Find answers to common questions and get the help you need
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="relative mb-12">
+        {/* <div className="relative mb-12">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
@@ -99,16 +97,18 @@ const HelpCenterPage = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
           />
-        </div>
+        </div> */}
 
         {/* Help Topics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {helpTopics.map((topic, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="bg-blue-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow cursor-pointer"
             >
-              <div className="text-3xl mb-4">{topic.icon}</div>
+              <div className="mt-4 mb-6 flex justify-center">
+                <img src={topic.icon} alt={topic.title} className="w-12 h-12 object-contain" />
+              </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {topic.title}
               </h3>
@@ -166,28 +166,37 @@ const HelpCenterPage = () => {
         </div>
 
         {/* Contact Support */}
-        <div className="mt-16 bg-blue-600 rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+        <div className="mt-16 bg-blue-100 rounded-2xl p-12 text-center">
+          <h2 className="text-3xl font-bold text-black mb-4">
             Still Need Help?
           </h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <p className="text-black text-lg mb-8">
             Our support team is ready to assist you with any questions or concerns
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-blue-500 rounded-lg p-6 hover:bg-blue-400 transition-colors cursor-pointer">
+            <div 
+              className="bg-blue-500 rounded-lg p-6 hover:bg-blue-400 transition-colors cursor-pointer"
+              onClick={() => window.open('https://wa.me/919207011244', '_blank')}
+            >
+              <IoLogoWhatsapp className="h-8 w-8 text-white mx-auto mb-3" />
+              <h3 className="text-white font-semibold mb-2">WhatsApp</h3>
+              <p className="text-green-100 text-sm">Quick Chat Support</p>
+            </div>
+ 
+            <div 
+              className="bg-green-500 rounded-lg p-6 hover:bg-green-400 transition-colors cursor-pointer"
+              onClick={() => window.open('tel:+919207011244', '_self')}
+            >
               <Phone className="h-8 w-8 text-white mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-2">Call Us</h3>
               <p className="text-blue-100 text-sm">+91 92070 11244</p>
             </div>
-            
-            <div className="bg-green-500 rounded-lg p-6 hover:bg-green-400 transition-colors cursor-pointer">
-              <MessageCircle className="h-8 w-8 text-white mx-auto mb-3" />
-              <h3 className="text-white font-semibold mb-2">WhatsApp</h3>
-              <p className="text-green-100 text-sm">Quick Chat Support</p>
-            </div>
-            
-            <div className="bg-purple-500 rounded-lg p-6 hover:bg-purple-400 transition-colors cursor-pointer">
+                    
+            <div 
+              className="bg-purple-500 rounded-lg p-6 hover:bg-purple-400 transition-colors cursor-pointer"
+              onClick={() => window.open('mailto:ethic4uz@gmail.com', '_self')}
+            >
               <Mail className="h-8 w-8 text-white mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-2">Email</h3>
               <p className="text-purple-100 text-sm">ethic4uz@gmail.com</p>
@@ -196,7 +205,7 @@ const HelpCenterPage = () => {
         </div>
 
         {/* Documentation Links */}
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Additional Resources
           </h3>
@@ -214,7 +223,7 @@ const HelpCenterPage = () => {
               Video Tutorials
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

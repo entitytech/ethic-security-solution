@@ -1,4 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import p1 from '../images/1.png';
+import p2 from '../images/2.png';
+import p3 from '../images/3.png';
+import p4 from '../images/4.png';
+import p5 from '../images/5.png';
+import p6 from '../images/6.png';
+import p7 from '../images/hikvision1.png';
+import p8 from '../images/hikvision2.png';
+import p9 from '../images/hikvision3.png';
+import p10 from '../images/hikvision4.png';
+import p11 from '../images/hikvision5.png';
+import p12 from '../images/hikvision6.png';
+import p13 from '../images/hikvision7.png';
+import p14 from '../images/hikvision8.png';
+
 import { useLocation } from 'react-router-dom';
 import { Filter } from 'lucide-react';
 
@@ -11,81 +26,272 @@ const ProductsPage = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const categories = ['All', 'CCTV', 'Home Automation', 'Networking', 'Video Door Phone', 'Attendance system', 'IP PBX', 'Cables'];
+  const categories = ['All', 'CCTV', 'Networking', 'Video Door Phone', 'Attendance system', 'IP PBX', 'Cables'];
 
   const products = [
     {
       id: 1,
-      name: "Hikvision DS-2CD2043G2-I",
+      name: "IMOU Cruiser Dual 2",
       category: "CCTV",
-      description: "4MP AcuSense Fixed Bullet Network Camera with built-in microphone",
+      description: "Blue & Red Warning Light Smart Full-color Night Vision | Wide View Dual Lens IMOU Algorithm Mart: Algo Play",
       price: "₹8,500",
-      image: "https://images.pexels.com/photos/8566533/pexels-photo-8566533.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["4MP Resolution", "Night Vision", "Weather Resistant"]
+      image: p1,
+      features: [
+        "5+5MP Dual Lens",
+        "Wide View Dual Lens",
+        "Algo Play (IMOU Algorithm)"
+      ]
     },
     {
       id: 2,
-      name: "Smart Light Switch",
-      category: "Home Automation",
-      description: "WiFi enabled smart switch with voice control and mobile app",
+      name: "IMOU Cruiser Dual",
+      category: "CCTV",
+      description: "Smart Full-color Night Vision | Wide View Dual Lens | IMOU SENSE® Dual-channel Human & Vehicle Detection",
       price: "₹1,200",
-      image: "https://images.pexels.com/photos/8566473/pexels-photo-8566473.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["WiFi Control", "Voice Assistant", "Timer Function"]
+      image: p2,
+      features: [
+        "5+5MP Dual Lens",
+        "Wide View Dual Lens",
+        "IMOU SENSE",
+        "Human & Vehicle Detection"
+      ]
     },
     {
       id: 3,
-      name: "TP-Link Archer AX73",
-      category: "Networking",
-      description: "AX5400 Dual Band Gigabit Wi-Fi 6 Router",
+      name: "IMOU Cruiser SE+",
+      category: "CCTV",
+      description: "Always focus on the point | Smart Auto Tracking | 360° Coverage | Two-way Talk",
       price: "₹12,000",
-      image: "https://images.pexels.com/photos/8566477/pexels-photo-8566477.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["Wi-Fi 6", "Dual Band", "Gigabit Speed"]
+      image: p3,
+      features: [
+        "3MP/5MP Options",
+        "Smart Auto Tracking",
+        "360° Coverage",
+        "Two‑way Talk",
+        "Always-on Focus"
+      ]
     },
     {
       id: 4,
-      name: "Bose SoundLink Mini",
-      category: "Video Door Phone",
-      description: "Portable Bluetooth speaker with premium sound quality",
+      name: "IMOU DK3",
+      category: "CCTV",
+      description: "Reliable Surveillance Starts Here | Multiple Resolutions | Night Vision Mode | IP67 | Alarm Notification | Worry-Free Storage | Multi-Scenario Adaptability",
       price: "₹15,000",
-      image: "https://images.pexels.com/photos/8566534/pexels-photo-8566534.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["Bluetooth 5.0", "12hr Battery", "Premium Sound"]
+      image: p4,
+      features: [
+        "2MP/3MP/4MP",
+        "IP67 Rated",
+        "Human Detection",
+        "Alarm Notifications",
+        "Worry‑free Storage",
+      ]
     },
     {
       id: 5,
-      name: "Solar Panel 320W",
-      category: "Attendance system",
-      description: "Monocrystalline solar panel with 25-year warranty",
+      name: "IMOU Bullet 3C",
+      category: "CCTV",
+      description: "Supports Wi‑Fi 6 Connection | Powered by IMOU SENSE™ | IP67 Weather-resistance",
       price: "₹18,000",
-      image: "https://images.pexels.com/photos/9875391/pexels-photo-9875391.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["320W Output", "25yr Warranty", "Weather Resistant"]
+      image: p5,
+      features: [
+        "3MP/5MP",
+        "5MP 3K Image",
+        "Wi‑Fi 6 Support",
+        "IMOU SENSE Powered",
+        "IP67 Weather‑resistant"
+      ]
     },
     {
       id: 6,
-      name: "Fingerprint Scanner",
-      category: "IP PBX",
-      description: "Biometric fingerprint scanner with 1000 user capacity",
+      name: "IMOU Turret SE",
+      category: "CCTV",
+      description: "Keep Connected to Your Business | Human Detection | Night Vision",
       price: "₹5,500",
-      image: "https://images.pexels.com/photos/8566478/pexels-photo-8566478.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["1000 Users", "Fast Recognition", "Backup Power"]
+      image: p6,
+      features: [
+        "2MP/4MP",
+        "Human Detection",
+        "Night Vision"
+      ]
     },
     {
       id: 7,
-      name: "Cat6A Ethernet Cable",
-      category: "Cables",
-      description: "High-speed ethernet cable for network installations",
+      name: "HIKVISION DS-2CD2H86G2H-IZS2UY/S(L)(RB)",
+      category: "CCTV",
+      description: "8MP Powered by Darkfighter Motorized Varifocal Turret Network Camera",
       price: "₹45/meter",
-      image: "https://images.pexels.com/photos/8566476/pexels-photo-8566476.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["Cat6A Standard", "10Gbps Speed", "23AWG"]
+      image: p7,
+      features: [
+        "8MP",
+        "Powered by Darkfighter",
+        "Motorized Varifocal",
+        "Turret Network Camera"
+      ]
     },
     {
       id: 8,
-      name: "CP Plus CP-UNC-VA40L3-S",
+      name: "HIKVISION DS-2CD20123G2-LI(U)Y",
       category: "CCTV",
-      description: "4MP Vandal Proof IR Dome Camera",
+      description: "12MP Acusense Smart Hybrid Light Fixed Bullet Network Camera",
       price: "₹6,800",
-      image: "https://images.pexels.com/photos/8566532/pexels-photo-8566532.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      features: ["4MP Resolution", "Vandal Proof", "IR Night Vision"]
-    }
+      image: p8,
+      features: [
+        "12MP",
+        "AcuSense",
+        "Smart Hybrid Light",
+        "Fixed Bullet",
+        "Network Camera"
+      ]
+    },
+    {
+      id: 9,
+      name: "HIKVISION DS-2CD23123G2-LI(2U)Y",
+      category: "CCTV",
+      description: "12MP Acusense Smart Hybrid Light Fixed Turret Network Camera",
+      price: "₹5,500",
+      image: p9,
+      features: [
+        "12MP",
+        "AcuSense",
+        "Smart Hybrid Light",
+        "Fixed Turret",
+        "Network Camera"
+      ]
+    }, {
+      id: 10,
+      name: "HIKVISION DS-2CD2H23G2-IZS",
+      category: "CCTV",
+      description: "2MP AcuSense Motorized Varifocal Turret Network Camera",
+      price: "₹5,500",
+      image: p10,
+      features: [
+        "2MP",
+        "AcuSense",
+        "Motorized Varifocal",
+        "Turret",
+        "Network Camera"
+      ]
+    }, {
+      id: 11,
+      name: "HIKVISION DS-2CD2767G2H-LIPTRZS",
+      category: "CCTV",
+      description: "6MP Smart Hybrid Light with ColorVu Motorized PTRZ Varifocal Dome Network Camera",
+      price: "₹5,500",
+      image: p11,
+      features: [
+        "6MP",
+        "Smart Hybrid Light",
+        "ColorVu",
+        "Motorized PTRZ",
+        "Varifocal Dome",
+        "Network Camera"
+      ]
+    }, {
+      id: 12,
+      name: "HIKVISION DS-2CD2767G2H-LIPTRZS2U/SL",
+      category: "CCTV",
+      description: "6MP Smart Hybrid Light with ColorVu Motorized PTRZ Varifocal Dome Network Camera",
+      price: "₹5,500",
+      image: p12,
+      features: [
+        "6MP",
+        "Smart Hybrid Light",
+        "ColorVu",
+        "Motorized PTRZ",
+        "Varifocal Dome",
+        "Network Camera"
+      ]
+    }, {
+      id: 13,
+      name: "HIKVISION DS-2CD2767G2HT-LIZS",
+      category: "CCTV",
+      description: "6MP Smart Hybrid Light with ColorVu Motorized Varifocal Dome Network Camera",
+      price: "₹5,500",
+      image: p13,
+      features: [
+        "6MP",
+        "Smart Hybrid Light",
+        "ColorVu",
+        "Motorized Varifocal",
+        "Dome",
+        "Network Camera"
+      ]
+    }, {
+      id: 14,
+      name: "HIKVISION DS-2CD2346G2H-I(U)",
+      category: "CCTV",
+      description: "4MP Powered by Darkfighter Fixed Turret Network Camera",
+      price: "₹5,500",
+      image: p14,
+      features: [
+        "4MP",
+        "Powered by Darkfighter",
+        "Fixed Turret",
+        "Network Camera"
+      ]
+    },
+    
+    // {
+    //   id: 6,
+    //   name: "Turret SE",
+    //   category: "CCTV",
+    //   description: "Keep Connected to Your Business | Human Detection | Night Vision",
+    //   price: "₹5,500",
+    //   image: p15,
+    //   features: [
+    //     "2MP/4MP",
+    //     "Human Detection",
+    //     "Night Vision"
+    //   ]
+    // }, {
+    //   id: 6,
+    //   name: "Turret SE",
+    //   category: "CCTV",
+    //   description: "Keep Connected to Your Business | Human Detection | Night Vision",
+    //   price: "₹5,500",
+    //   image: p16,
+    //   features: [
+    //     "2MP/4MP",
+    //     "Human Detection",
+    //     "Night Vision"
+    //   ]
+    // }, {
+    //   id: 6,
+    //   name: "Turret SE",
+    //   category: "CCTV",
+    //   description: "Keep Connected to Your Business | Human Detection | Night Vision",
+    //   price: "₹5,500",
+    //   image: p17,
+    //   features: [
+    //     "2MP/4MP",
+    //     "Human Detection",
+    //     "Night Vision"
+    //   ]
+    // }, {
+    //   id: 6,
+    //   name: "Turret SE",
+    //   category: "CCTV",
+    //   description: "Keep Connected to Your Business | Human Detection | Night Vision",
+    //   price: "₹5,500",
+    //   image: p18,
+    //   features: [
+    //     "2MP/4MP",
+    //     "Human Detection",
+    //     "Night Vision"
+    //   ]
+    // }, {
+    //   id: 6,
+    //   name: "Turret SE",
+    //   category: "CCTV",
+    //   description: "Keep Connected to Your Business | Human Detection | Night Vision",
+    //   price: "₹5,500",
+    //   image: p19,
+    //   features: [
+    //     "2MP/4MP",
+    //     "Human Detection",
+    //     "Night Vision"
+    //   ]
+    // },
   ];
 
   const filteredProducts = selectedCategory === 'All' 
@@ -150,7 +356,7 @@ const ProductsPage = () => {
                   </span>
                 </div>
                 
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <p className="text-gray-600 text-sm mb-4">
                   {product.description}
                 </p>
                 
