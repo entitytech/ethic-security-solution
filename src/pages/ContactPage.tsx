@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { Send, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
@@ -82,20 +83,20 @@ const ContactPage = () => {
 
   const getServiceDisplayName = (serviceValue: string) => {
     const serviceMap: { [key: string]: string } = {
-      "cctv": "CCTV Installation",
+      cctv: "CCTV Installation",
       "home-automation": "Home Automation",
       "video-door-phone": "Video Door Phone",
-      "biometric": "Biometric Systems",
-      "solar": "Solar Solutions",
-      "audio": "Audio Systems",
-      "networking": "Computer Networking",
+      biometric: "Biometric Systems",
+      solar: "Solar Solutions",
+      audio: "Audio Systems",
+      networking: "Computer Networking",
       "gate-automation": "Gate Automation",
-      "cabling": "Cabling Solutions",
-      "alarm": "Alarm Systems",
-      "other": "Other",
-      "": "Not specified"
+      cabling: "Cabling Solutions",
+      alarm: "Alarm Systems",
+      other: "Other",
+      "": "Not specified",
     };
-    
+
     return serviceMap[serviceValue] || "Not specified";
   };
 
@@ -169,13 +170,13 @@ const ContactPage = () => {
 *Submitted via website contact form*`;
 
     // Send to WhatsApp
-    const phoneNumber = "917736173663"; // Remove + and spaces for WhatsApp URL
+    const phoneNumber = "919207011244"; // Remove + and spaces for WhatsApp URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    
+
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
-    
+
     // Reset form after successful submission
     setFormData({
       name: "",
@@ -184,7 +185,7 @@ const ContactPage = () => {
       service: "",
       message: "",
     });
-    
+
     // Clear all errors
     setNameError("");
     setEmailError("");
@@ -218,6 +219,20 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-20">
+      <Helmet>
+        <title>
+          Contact Ethic Security Solution | CCTV & Security Experts Kerala
+        </title>
+        <meta
+          name="description"
+          content="Get in touch with Ethic Security Solution for CCTV, home automation, IP PBX, and security systems in Kerala. Call +91 92070 11244 or email ethic4uz@gmail.com today."
+        />
+        <link
+          rel="canonical"
+          href="https://www.ethicsecuritysolution.com/contact"
+        />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -413,7 +428,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     >
-                      <option value="">Select a service</option>                 
+                      <option value="">Select a service</option>
                       <option value="cctv">CCTV Installation</option>
                       <option value="home-automation">Home Automation</option>
                       <option value="video-door-phone">Video Door Phone</option>
@@ -486,7 +501,9 @@ const ContactPage = () => {
             className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handleWhatsAppClick}
           >
-            <div className="text-3xl mb-2 flex justify-center"><BsWhatsapp /></div>
+            <div className="text-3xl mb-2 flex justify-center">
+              <BsWhatsapp />
+            </div>
             <h3 className="font-semibold mb-1">WhatsApp Chat</h3>
             <p className="text-green-100 text-sm">
               Quick response via WhatsApp
@@ -497,7 +514,9 @@ const ContactPage = () => {
             className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handlePhoneClick}
           >
-            <div className="text-3xl mb-2 flex justify-center"><IoCallOutline /></div>
+            <div className="text-3xl mb-2 flex justify-center">
+              <IoCallOutline />
+            </div>
             <h3 className="font-semibold mb-1">Call Now</h3>
             <p className="text-blue-100 text-sm">Speak with our experts</p>
           </div>
@@ -506,7 +525,9 @@ const ContactPage = () => {
             className="bg-purple-500 hover:bg-purple-600 text-white p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             onClick={handleEmailClick}
           >
-            <div className="text-3xl mb-2 flex justify-center"><MdOutlineEmail /></div>
+            <div className="text-3xl mb-2 flex justify-center">
+              <MdOutlineEmail />
+            </div>
             <h3 className="font-semibold mb-1">Email Us</h3>
             <p className="text-purple-100 text-sm">
               Detailed inquiries welcome

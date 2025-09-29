@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { MapPin, Phone, Mail, Users, Award, Clock, Shield } from 'lucide-react';
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
+import { MapPin, Phone, Mail, Users, Award, Clock, Shield } from "lucide-react";
 
 const AboutPage = () => {
   const location = useLocation();
@@ -15,17 +16,31 @@ const AboutPage = () => {
     const address = "8XCR+FRR, Orphanage Rd, Mukkam, Kerala 673602, India";
     const encodedAddress = encodeURIComponent(address);
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-    window.open(googleMapsUrl, '_blank');
+    window.open(googleMapsUrl, "_blank");
   };
   const stats = [
-    { number: '500+', label: 'Projects Completed' },
-    { number: '8+', label: 'Years Experience' },
-    { number: '50+', label: 'Expert Team' },
-    { number: '24/7', label: 'Customer Support' }
+    { number: "500+", label: "Projects Completed" },
+    { number: "8+", label: "Years Experience" },
+    { number: "50+", label: "Expert Team" },
+    { number: "24/7", label: "Customer Support" },
   ];
 
   return (
     <div className="min-h-screen bg-white py-20">
+      <Helmet>
+        <title>
+          About Ethic Security Solution | CCTV & Automation in Kerala
+        </title>
+        <meta
+          name="description"
+          content="With 8+ years of experience, Ethic Security Solution provides CCTV installation, home automation, networking, and security systems across Kerala. Certified experts with 24/7 support."
+        />
+        <link
+          rel="canonical"
+          href="https://www.ethicsecuritysolution.com/about"
+        />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -33,8 +48,8 @@ const AboutPage = () => {
             About Ethic Security Solution
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Leading provider of comprehensive security and automation solutions in Kerala, 
-            trusted by businesses and homeowners for over 8 years.
+            Leading provider of comprehensive security and automation solutions
+            in Kerala, trusted by businesses and homeowners for over 8 years.
           </p>
         </div>
 
@@ -46,14 +61,17 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                Founded with a vision to provide cutting-edge security solutions, Ethic Security Solution 
-                has been at the forefront of protecting homes and businesses across Kerala. We combine 
-                advanced technology with professional expertise to deliver reliable security systems.
+                Founded with a vision to provide cutting-edge security
+                solutions, Ethic Security Solution has been at the forefront of
+                protecting homes and businesses across Kerala. We combine
+                advanced technology with professional expertise to deliver
+                reliable security systems.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                From humble beginnings to becoming a trusted name in security solutions, we have 
-                consistently focused on quality, innovation, and customer satisfaction. Our team of 
-                certified professionals ensures every installation meets the highest standards.
+                From humble beginnings to becoming a trusted name in security
+                solutions, we have consistently focused on quality, innovation,
+                and customer satisfaction. Our team of certified professionals
+                ensures every installation meets the highest standards.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -82,7 +100,9 @@ const AboutPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <div key={index} className="text-white">
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">
+                  {stat.number}
+                </div>
                 <div className="text-blue-100">{stat.label}</div>
               </div>
             ))}
@@ -96,7 +116,7 @@ const AboutPage = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Get in Touch
             </h2>
-            
+
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
@@ -105,22 +125,23 @@ const AboutPage = () => {
                 <div>
                   <h3 className="font-semibold text-gray-900">Address</h3>
                   <p className="text-gray-600">
-                    8XCR+FRR, Orphanage Rd<br />
+                    8XCR+FRR, Orphanage Rd
+                    <br />
                     Mukkam, Kerala 673602, India
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
                   <Phone className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">Phone</h3>
-                  <p className="text-gray-600">+91 92070 11244</p>
+                  <p className="text-gray-600">0495 208 2227</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
                   <Mail className="h-6 w-6 text-blue-600" />
@@ -133,11 +154,15 @@ const AboutPage = () => {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Business Hours</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Business Hours
+              </h3>
               <div className="space-y-2 text-gray-600">
                 <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
                 <p>Sunday: 10:00 AM - 4:00 PM</p>
-                <p className="text-blue-600 font-semibold">Emergency Support: 24/7</p>
+                <p className="text-blue-600 font-semibold">
+                  Emergency Support: 24/7
+                </p>
               </div>
             </div>
           </div>
@@ -152,15 +177,18 @@ const AboutPage = () => {
               <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative">
                 {/* Map Pattern Background */}
                 <div className="absolute inset-0 opacity-20">
-                  <div className="w-full h-full" style={{
-                    backgroundImage: `
+                  <div
+                    className="w-full h-full"
+                    style={{
+                      backgroundImage: `
                       linear-gradient(90deg, #e5e7eb 1px, transparent 1px),
                       linear-gradient(180deg, #e5e7eb 1px, transparent 1px)
                     `,
-                    backgroundSize: '40px 40px'
-                  }}></div>
+                      backgroundSize: "40px 40px",
+                    }}
+                  ></div>
                 </div>
-                
+
                 {/* Central Location Marker */}
                 <div className="relative z-10 text-center">
                   <div className="relative">
@@ -171,14 +199,17 @@ const AboutPage = () => {
                     {/* Pulse Effect */}
                     <div className="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
                   </div>
-                  
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Ethic Security Solution</h3>
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    Ethic Security Solution
+                  </h3>
                   <p className="text-gray-600 text-sm">
-                    8XCR+FRR, Orphanage Rd<br />
+                    8XCR+FRR, Orphanage Rd
+                    <br />
                     Mukkam, Kerala 673602
                   </p>
                 </div>
-                
+
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 bg-white/80 rounded-lg px-3 py-1 text-xs text-gray-600">
                   📍 Location
@@ -187,20 +218,22 @@ const AboutPage = () => {
                   🗺️ Kerala, India
                 </div>
               </div>
-              
+
               {/* Overlay with location info and button */}
               <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-gray-200">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <MapPin className="h-5 w-5 text-blue-600" />
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Get Directions</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        Get Directions
+                      </p>
                       <p className="text-xs text-gray-600">
                         Click to open in Google Maps
                       </p>
                     </div>
                   </div>
-                  <button 
+                  <button
                     onClick={openGoogleMaps}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap shadow-md hover:shadow-lg"
                   >
@@ -215,17 +248,23 @@ const AboutPage = () => {
         {/* Mission & Vision */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-blue-50 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Mission
+            </h3>
             <p className="text-gray-700 text-lg">
-              To provide innovative, reliable, and comprehensive security solutions that protect 
-              what matters most to our customers, while delivering exceptional service and support.
+              To provide innovative, reliable, and comprehensive security
+              solutions that protect what matters most to our customers, while
+              delivering exceptional service and support.
             </p>
           </div>
           <div className="bg-blue-50 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Vision
+            </h3>
             <p className="text-gray-700 text-lg">
-              To be Kerala's leading security solutions provider, known for cutting-edge technology, 
-              professional excellence, and unwavering commitment to customer satisfaction.
+              To be Kerala's leading security solutions provider, known for
+              cutting-edge technology, professional excellence, and unwavering
+              commitment to customer satisfaction.
             </p>
           </div>
         </div>
